@@ -1,0 +1,52 @@
+@model Wedding
+@* <a asp-controller="Home" asp-action="Index">Home</a> *@
+
+<div class="container w-75 mx-auto">
+  <h2 class="text-center">New Wedding</h2>
+  <form
+    class="shadow p-3 rounded"
+    asp-controller="Wedding"
+    asp-action="CreateWedding"
+    method="POST"
+  >
+    <div class="mb-3">
+      <label asp-for="WedOne">Wedder One</label>
+      <span
+        asp-validation-for="WedOne"
+        class="text-danger font-weight-bold"
+      ></span>
+      <input class="form-control" asp-for="WedOne" />
+    </div>
+
+    <div class="mb-3">
+      <label asp-for="WedTwo">Wedder Two</label>
+      <span
+        asp-validation-for="WedTwo"
+        class="text-danger font-weight-bold"
+      ></span>
+      <input class="form-control" asp-for="WedTwo" />
+    </div>
+
+    <div class="mb-3">
+      <label asp-for="WedDate">Weddind Date</label>
+      <span
+        asp-validation-for="WedDate"
+        class="text-danger font-weight-bold"
+      ></span>
+      <input class="form-control" asp-for="WedDate"  />
+    </div>
+
+    <div class="mb-3">
+      <label asp-for="WedAddress">Wedding Address</label>
+      <span
+        asp-validation-for="WedAddress"
+        class="text-danger font-weight-bold"
+      ></span>
+      <input class="form-control" asp-for="WedAddress" />
+    </div>
+
+    <button class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+

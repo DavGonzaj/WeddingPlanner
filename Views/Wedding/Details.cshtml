@@ -1,0 +1,43 @@
+@model Wedding
+
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">@Model.WedOne & @Model.WedTwo's wedding</h1>
+    <h2 class="card-subtitle mb-2 text-muted">Date: @Model.WedDate</h2>
+    <p class="card-text">Count</p>
+    <p class="card-text">Action</p>
+    <h3 class="card-subtitle">Planned by: @Model.Planner?.Name</h3>
+    <h4 class="card-title mt-4">People Going To The Wedding:</h4>
+    @if(Model.Signups.Count==0)
+    {
+        <h4 class="card-text">Nobody has signed up yet :(</h4>
+    }
+    else
+    {
+
+    @foreach (UserWeddingSignup signup in Model.Signups)
+        {
+        <h2 class="card-title text-muted">@signup.User?.Name</h2>
+        }
+    }
+        @if (Model.UserId == Context.Session.GetInt32("UUID"))
+        {
+        <a
+          asp-controller="Wedding"
+          asp-action="EditWedding"
+          asp-route-weddingId="@Model.WeddingId"
+          class="btn btn-warning mt-2">Edit</a>
+          <form asp-controller="Wedding" asp-action="DeleteWedding" asp-route-weddingId="@Model.WeddingId">
+            <button class="btn btn-danger mt-4">Delete</button>
+          </form>
+           @* <a
+          asp-controller="Wedding"
+          asp-action="DeleteWedding"
+          asp-route-weddingId="@Model.WeddingId"
+          class="btn btn-danger">Delete</a> smfsdionfsonsonfosnffsfsfsdfsfsfsfsfsf  *@
+          @* smfsdionfsonsonfosnffsfsfsdfsfsfsfsfsf *@
+          }
+  </div>
+</div>
+
+
